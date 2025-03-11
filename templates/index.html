@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Database Interface</title>
+</head>
+<body>
+    <h1>Participanți</h1>
+    <a href="/logout">Logout</a>
+    <form action="/add_participant" method="post">
+        <input type="text" name="nume" placeholder="Nume">
+        <input type="text" name="prenume" placeholder="Prenume">
+        <input type="date" name="data_nasterii" placeholder="Data Nașterii">
+        <input type="email" name="email" placeholder="Email">
+        <input type="text" name="telefon" placeholder="Telefon">
+        <input type="text" name="adresa" placeholder="Adresa">
+        <input type="submit" value="Adaugă Participant">
+    </form>
+
+    <h2>Lista Participanți</h2>
+    <table border="1">
+        <tr>
+            <th>Nume</th>
+            <th>Prenume</th>
+            <th>Data Nașterii</th>
+            <th>Email</th>
+            <th>Telefon</th>
+            <th>Adresa</th>
+            <th>Acțiuni</th>
+        </tr>
+        {% for participant in participanti %}
+            <tr>
+                <td>{{ participant.Nume }}</td>
+                <td>{{ participant.Prenume }}</td>
+                <td>{{ participant.Data_Nasterii }}</td>
+                <td>{{ participant.Email }}</td>
+                <td>{{ participant.Telefon }}</td>
+                <td>{{ participant.Adresa }}</td>
+                <td>
+                    <form action="/update_participant/{{ participant.ParticipantID }}" method="post">
+                        <input type="text" name="nume" value="{{ participant.Nume }}">
+                        <input type="text" name="prenume" value="{{ participant.Prenume }}">
+                        <input type="date" name="data_nasterii" value="{{ participant.Data_Nasterii }}">
+                        <input type="email" name="email" value="{{ participant.Email }}">
+                        <input type="text" name="telefon" value="{{ participant.Telefon }}">
+                        <input type="text" name="adresa" value="{{ participant.Adresa }}">
+                        <input type="submit" value="Actualizează">
+                    </form>
+                    <form action="/delete_participant/{{ participant.ParticipantID }}" method="get">
+                        <input type="submit" value="Șterge">
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Similar pentru Donatii și Evenimente -->
+
+</body>
+</html>

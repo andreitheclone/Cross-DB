@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participant Registration</title>
+</head>
+<body>
+    <h1>Register Participant</h1>
+    <form action="{{ url_for('add_participant') }}" method="post">
+        <label for="Nume">Nume:</label>
+        <input type="text" id="Nume" name="Nume" required><br><br>
+        
+        <label for="Prenume">Prenume:</label>
+        <input type="text" id="Prenume" name="Prenume" required><br><br>
+        
+        <label for="Data_Nasterii">Data Nasterii:</label>
+        <input type="date" id="Data_Nasterii" name="Data_Nasterii" required><br><br>
+        
+        <label for="Email">Email:</label>
+        <input type="email" id="Email" name="Email" required><br><br>
+        
+        <label for="Telefon">Telefon:</label>
+        <input type="text" id="Telefon" name="Telefon" required><br><br>
+        
+        <label for="Adresa">Adresa:</label>
+        <input type="text" id="Adresa" name="Adresa" required><br><br>
+        
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
